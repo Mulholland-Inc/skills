@@ -1,12 +1,17 @@
 {
   "name": "mulholland",
-  "owner": { "name": "Mulholland", "url": "https://mulholland.ai" },
-  "metadata": { "description": "Claude Code skills from Mulholland." },
+  "owner": {
+    "name": "Mulholland",
+    "url": "https://mulholland.ai"
+  },
+  "metadata": {
+    "description": "Claude Code skills from Mulholland."
+  },
   "plugins": [
     {
-      "name": "scrutinize",
-      "source": "./plugins/scrutinize",
-      "description": "Radically simplify a part of your code base: delete, merge and cut until it is much smaller, each change gated by a hard score with behavior proven unchanged, then a draft PR.",
+      "name": "mulholland",
+      "source": "./plugins/mulholland",
+      "description": "Claude Code skills from Mulholland: /mulholland:scrutinize radically simplifies a part of your code base, each cut gated by a hard score with behavior proven unchanged.",
       "category": "development"
     }
   ]
