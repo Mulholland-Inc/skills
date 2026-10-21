@@ -24,7 +24,7 @@ a draft PR, where you take back any cut you disagree with.
 
 It never breaks data or anything an outside client calls.
 
-Needs `git`, `go` (the scorer is one stdlib-only Go file) and `gh` for the PR.
+Works on any language. Needs `git`, `python3` (the scorer is one standard-library file) and `gh` for the PR.
 
 ## License
 

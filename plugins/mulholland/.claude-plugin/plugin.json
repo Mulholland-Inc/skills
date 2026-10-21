@@ -1,6 +1,6 @@
 {
   "name": "mulholland",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Claude Code skills from Mulholland: /mulholland:scrutinize radically simplifies a part of your code base, each cut gated by a hard score with behavior proven unchanged.",
   "author": {
     "name": "Mulholland",
