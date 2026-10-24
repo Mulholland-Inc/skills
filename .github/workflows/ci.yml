@@ -1,0 +1,32 @@
+name: ci
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: check
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - name: Manifests are valid JSON
+        run: find . -name '*.json' -not -path './.git/*' -print0 | xargs -0 -n1 python -m json.tool --no-ensure-ascii > /dev/null
+      - name: Every skill has a name and description
+        run: |
+          status=0
+          for f in $(find plugins -name SKILL.md); do
+            head -20 "$f" | grep -q '^name:' && head -20 "$f" | grep -q '^description:' || { echo "::error file=$f::missing name or description in front matter"; status=1; }
+          done
+          exit $status
+      - name: Python scripts compile
+        run: find . -name '*.py' -not -path './.git/*' -print0 | xargs -0 -r python -m py_compile
